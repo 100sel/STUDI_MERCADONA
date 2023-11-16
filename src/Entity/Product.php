@@ -26,7 +26,7 @@ class Product
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]
     private ?int $price = null;
 
-    #[ORM\OneToOne(mappedBy: 'product', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(mappedBy: 'product', cascade: ['persist'])]
     private ?Promotion $promotion = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
@@ -103,8 +103,13 @@ class Product
         return $this->promotion;
     }
 
-    public function setPromotion(Promotion $promotion): static
+    public function setPromotion(?Promotion $promotion): static
     {
+        if (!$promotion)
+        {
+            $this->promotion = null;
+            return $this;
+        }
         // set the owning side of the relation if necessary
         if ($promotion->getProduct() !== $this) {
             $promotion->setProduct($this);

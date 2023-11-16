@@ -23,7 +23,7 @@ class Promotion
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $endDate = null;
 
-    #[ORM\OneToOne(inversedBy: 'promotion', cascade: ['persist', 'remove'])]
+    #[ORM\OneToOne(inversedBy: 'promotion', cascade: ['persist'])]
     #[ORM\JoinColumn(nullable: false)]
     private ?Product $product = null;
 

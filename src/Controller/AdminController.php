@@ -62,6 +62,8 @@ class AdminController extends AbstractController
     public function remove_promo(int $promotionId): Response
     {
         $promotion = $this->em->getRepository(Promotion::class)->find($promotionId);
+        $product = $this->em->getRepository(Product::class)->find($promotion->getProduct());
+        $product->setPromotion(null);
         $this->em->remove($promotion);
         $this->em->flush();
         return $this->redirectToRoute('app_catalogue');
