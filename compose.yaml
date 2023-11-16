@@ -8,17 +8,8 @@ services:
     volumes:
       - .:/var/www
     environment:
-      DATABASE_URL: "pgsql://postgres:oSWFpqdV9aowbQQ@studi-mercadona-bdd.flycast:5432"
+      DATABASE_URL: "postgres://postgres:7DLv5OzIZ0NMnAe@studi-mercadona-bdd.flycast:5432"
       MESSENGER_TRANSPORT_DSN: "doctrine://default?auto_setup=0"
-  nginx:
-    image: nginx:alpine
-    ports:
-      - "80:80"
-    volumes:
-      - .:/var/www
-      - ./nginx.conf:/etc/nginx/conf.d/default.conf
-    depends_on:
-      - app
-
+ 
 volumes:
   database_data:

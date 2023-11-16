@@ -1,0 +1,1 @@
+docker build -t 100sel/studi_mercadona:latest . && docker push 100sel/studi_mercadona:latest && fly deploy
