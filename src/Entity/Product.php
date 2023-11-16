@@ -17,10 +17,10 @@ class Product
     #[ORM\Column(length: 255)]
     private ?string $label = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 1024, nullable: true)]
     private ?string $description = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    #[ORM\Column(length: 1024, nullable: true)]
     private ?string $image = null;
 
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: 2)]

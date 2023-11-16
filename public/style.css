@@ -40,13 +40,24 @@ header > nav a {
 
 .catalogue .product {
     margin: 1em 1em;
-    width: 30%;
+    width: 20%;
     padding: 1em;
 }
 
+.catalogue .product .header {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.catalogue .product .header .title {
+    text-align: center;
+}
+
 .catalogue .product img {
-    width:50%;
+    width: 100%;
     height: auto;
+    border-radius: 3px;
 }
 
 .catalogue .product .grid {

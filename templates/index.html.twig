@@ -23,12 +23,12 @@
 
         {% for product in products %}
             <article class="container product">
-
+                <div class="header">
                     <img src={{ product.image }}>
-                    <h2 class="">
+                    <h2 class="title">
                         {{ product.label }}
                     </h2>
-
+                </div>
                     <details>
                         <summary>Description:</summary>
                         <p>{{ product.description }}</p>
@@ -38,12 +38,12 @@
                             {% if product.promotion %}
                                 {% set promotion = promotions.find(product.promotion) %}
                                 {% if promotion and promotion.startDate < date() and promotion.endDate > date() %}
-                                    <span class="price_promo">{{ product.price * (1 - promotion.discount / 100) }}</span>
+                                    <span class="price_promo">{{ product.price * (1 - promotion.discount / 100) }} €</span>
                                 {% else %}
-                                    <span>{{ product.price }}</span>
+                                    <span>{{ product.price }} €</span>
                                 {% endif %}
                             {% else %}
-                                <span>{{ product.price }}</span>
+                                <span>{{ product.price }} €</span>
                             {% endif %}
                         <span>{{ product.category.label }}</span>
                     </div>
