@@ -37,7 +37,7 @@
                     <div class="grid">
                             {% if product.promotion %}
                                 {% set promotion = promotions.find(product.promotion) %}
-                                {% if promotion %}
+                                {% if promotion and promotion.startDate < date() and promotion.endDate > date() %}
                                     <span class="price_promo">{{ product.price * (1 - promotion.discount / 100) }}</span>
                                 {% else %}
                                     <span>{{ product.price }}</span>
@@ -48,8 +48,12 @@
                         <span>{{ product.category.label }}</span>
                     </div>
 
-                {% if app.user and not product.promotion%}
+                {% if app.user %}
+                    {% if not product.promotion %}
                         <a href="{{ path('app_add_promo', {'productId': product.id}) }}" role="button" class="outline">ADD PROMO</a>
+                    {% else %}
+                        <a href="{{ path('app_remove_promo', {'promotionId': promotion.id}) }}" role="button" class="outline">REMOVE PROMO</a>
+                    {% endif %}
                 {% endif %}
             </article>
 

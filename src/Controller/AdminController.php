@@ -57,4 +57,13 @@ class AdminController extends AbstractController
 
         return $this->render('admin/add_promo.html.twig', ['form' => $form->createView(), 'product' => $product]);
     }
+
+    #[Route(path: '/remove_promo/{promotionId}', name: 'app_remove_promo')]
+    public function remove_promo(int $promotionId): Response
+    {
+        $promotion = $this->em->getRepository(Promotion::class)->find($promotionId);
+        $this->em->remove($promotion);
+        $this->em->flush();
+        return $this->redirectToRoute('app_catalogue');
+    }
 }
