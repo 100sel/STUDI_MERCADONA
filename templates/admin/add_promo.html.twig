@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block body %}
+<div class="container">
+<h1>MAKE A NEW PROMOTION</h1>
+<h3>Product: {{ product.label }}</h3>
+<img src={{ product.image }}>
+    {{ form_start(form) }}
+        {{ form_widget(form) }}
+    {{ form_end(form) }}
+</div>
+{% endblock %}

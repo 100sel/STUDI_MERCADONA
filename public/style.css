@@ -1,0 +1,98 @@
+header > nav {
+    border-top : 1px solid white;
+    border-bottom: 1px solid white;
+}
+
+header > nav a {
+    display: inline;
+    margin: 0;
+    padding-top: 1em;
+}
+
+.home.wrapper {
+    text-align: center;
+}
+
+.catalogue_header form:first-child {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.categories.wrapper {
+    display: inline-block;
+    width: 33%;
+}
+
+#filter_form_submit {
+    margin: 1em 0;
+}
+
+.add_product.wrapper {
+    margin-left: 1em;
+}
+
+.catalogue {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.catalogue .product {
+    margin: 1em 1em;
+    width: 30%;
+    padding: 1em;
+}
+
+.catalogue .product img {
+    width:50%;
+    height: auto;
+}
+
+.catalogue .product .grid {
+    margin-bottom: 1em;
+}
+
+.price_promo {
+    color: red;
+    font-weight: bold;
+}
+
+/* Amber Light scheme (Default) */
+/* Can be forced with data-theme="light" */
+[data-theme="light"],
+:root:not([data-theme="dark"]) {
+  --primary: #ffb300;
+  --primary-hover: #ffa000;
+  --primary-focus: rgba(255, 179, 0, 0.125);
+  --primary-inverse: rgba(0, 0, 0, 0.75);
+}
+
+/* Amber Dark scheme (Auto) */
+/* Automatically enabled if user has Dark mode enabled */
+@media only screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme]) {
+    --primary: #ffb300;
+    --primary-hover: #ffc107;
+    --primary-focus: rgba(255, 179, 0, 0.25);
+    --primary-inverse: rgba(0, 0, 0, 0.75);
+  }
+}
+
+/* Amber Dark scheme (Forced) */
+/* Enabled if forced with data-theme="dark" */
+[data-theme="dark"] {
+  --primary: #ffb300;
+  --primary-hover: #ffc107;
+  --primary-focus: rgba(255, 179, 0, 0.25);
+  --primary-inverse: rgba(0, 0, 0, 0.75);
+}
+
+/* Amber (Common styles) */
+:root {
+  --form-element-active-border-color: var(--primary);
+  --form-element-focus-color: var(--primary-focus);
+  --switch-color: var(--primary-inverse);
+  --switch-checked-background-color: var(--primary);
+}
+

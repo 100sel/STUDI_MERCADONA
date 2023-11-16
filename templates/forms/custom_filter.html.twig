@@ -1,0 +1,10 @@
+{% block choice_widget_expanded %}
+    {% apply spaceless %}
+        {% for child in form %}
+            <div class="categories wrapper">
+                {{ form_widget(child) }}
+                {{ form_label(child) }}
+            </div>
+        {% endfor %}
+    {% endapply %}
+{% endblock choice_widget_expanded %}

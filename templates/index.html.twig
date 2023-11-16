@@ -1,0 +1,59 @@
+{% extends "./base.html.twig" %}
+
+{% block body %}
+    <div class="catalogue_header container-fluid">
+        <div class="">
+            <h1 class="">
+                Products ({{ products|length }})
+            </h1>
+        </div>
+        {% form_theme form 'forms/custom_filter.html.twig' %}
+        {{ form_start(form) }}
+            {{ form_row(form.categories) }}
+        {{ form_end(form) }}
+    </div>
+
+        {% if app.user %}
+            <div class="add_product wrapper">
+                <a href="/add_product" role="button" class="outline">ADD PRODUCT</a>
+            </div>
+        {% endif %}
+
+    <div class="container-fluid catalogue">
+
+        {% for product in products %}
+            <article class="container product">
+
+                    <img src={{ product.image }}>
+                    <h2 class="">
+                        {{ product.label }}
+                    </h2>
+
+                    <details>
+                        <summary>Description:</summary>
+                        <p>{{ product.description }}</p>
+                    </details>
+
+                    <div class="grid">
+                            {% if product.promotion %}
+                                {% set promotion = promotions.find(product.promotion) %}
+                                {% if promotion %}
+                                    <span class="price_promo">{{ product.price * (1 - promotion.discount / 100) }}</span>
+                                {% else %}
+                                    <span>{{ product.price }}</span>
+                                {% endif %}
+                            {% else %}
+                                <span>{{ product.price }}</span>
+                            {% endif %}
+                        <span>{{ product.category.label }}</span>
+                    </div>
+
+                {% if app.user and not product.promotion%}
+                        <a href="{{ path('app_add_promo', {'productId': product.id}) }}" role="button" class="outline">ADD PROMO</a>
+                {% endif %}
+            </article>
+
+        {% endfor %}
+
+    </div>
+{% endblock %}
