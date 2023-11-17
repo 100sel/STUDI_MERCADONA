@@ -2,7 +2,7 @@
 
 ## Présentation de l'Application
 
-Bienvenue dans l'application web de Mercadona, votre outil numérique pour gérer et consulter les promotions de produits avec facilité et efficacité. Conçue pour remplacer les tracts publicitaires papier, cette application offre une plateforme écologique pour les administrateurs pour créer et gérer des produits et promotions, et pour les utilisateurs pour parcourir et découvrir les offres disponibles.
+Bienvenue dans l'application web de Mercadona, votre outil numérique pour gérer et consulter les promotions de produits avec facilité et efficacité. Conçue pour remplacer les tracts publicitaires papier, cette application offre une plateforme écologique pour les utilisateurs pour créer et gérer des produits et promotions, et pour les visiteurs pour parcourir et découvrir les offres disponibles.
 
 ## Guide de Démarrage pour les Administrateurs
 
